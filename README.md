@@ -1,9 +1,7 @@
 # EasyORM
-好上手的数据访问类。 
+好上手的数据访问类， 无配置，零依赖。
 
 提供可泛用的接口，减少编码量。
-
-无配置，零依赖。
 
 # 上手
 ### Hello World
@@ -37,15 +35,15 @@ var students = db.get(student.class, "select id, value from student");
 
 ### 通过实体类增删改
 ```Java
-var entity = new table();
-entity.id = 1;
-entity.value = "defaultValue";
+var student = new student();
+student.id = 1;
+student.name = "张三";
 db.insert(entity);  //插入
 
-entity.value = "newValue";
-db.update(entity);  //更新
+student.name = "李四";
+db.update(student);  //更新
 
-db.delete(entity);  //删除
+db.delete(student);  //删除
 ```
 
 ### 事务
@@ -187,6 +185,9 @@ public class student{
 </item>
 ```
 SQL只在名称匹配forComputer的计算机上有效
+
+### 自动值（自增）主键
+TODO
 
 ### 更多工具方法
 ```Java
