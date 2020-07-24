@@ -1,5 +1,5 @@
 # EasyORM
-简单好用的数据访问类。 
+好上手的数据访问类。 
 
 # 上手
 ### Hello World
@@ -17,8 +17,8 @@ var name = firstRow.get("name");
 
 ### 增删改 & SQL参数
 ```Java
-db.execute("insert into student(id, name) values(?v0, ?v1)", 1, "张三");
 db.execute("delete from student where name = ?v0", "张三");
+db.execute("insert into student(id, name) values(?v0, ?v1)", 1, "张三");
 db.execute("update student set name = ?v1 where id = ?v0", 1, "李四");
 ```
 
@@ -58,12 +58,6 @@ catch(Exception ex) {
 ```
 事务支持所有执行SQL的方法
 
-### 缓存
-```Java
-var cache = db.executeTable(1000*60, "select * from table"); //数据将被缓存6000ms，在超时前再次执行SQL，将返回内存中的缓存数据。
-```
-缓存支持所有执行SQL的方法
-
 ### SQL配置
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -80,7 +74,33 @@ var students = db.executeTable("getStudents");
 ```
 SQL配置支持所有执行SQL的方法
 
+### Join数据实体
+```XML
+<item key="getStudents">
+	select
+	    student.name studentName,
+	    class.name className
+	from student
+	join class on class.id = student.classId 
+</item>
+```
+
+```Java
+class joinData {
+    public String studentName;
+    public String className;
+}
+var data = db.get(joinData.class, "getStudents");
+```
+
+
 # 进阶
+### 缓存
+```Java
+var cache = db.executeTable(1000*60, "select * from table"); //数据将被缓存6000ms，在超时前再次执行SQL，将返回内存中的缓存数据。
+```
+缓存支持所有执行SQL的方法
+
 ### 拦截器
 ```Java
 db.sqlIntercepter = info->{
@@ -108,6 +128,7 @@ var students = db.get(
 DBUtils.commonVariables.add(new DBVariable("zero", 0));
 var students = db.get(student.class, "select * from student where id in (?zero, ?v0)", 1);
 ```
+SQL参数不一定必须被使用，因此多传了不要紧。
 
 ### 动态SQL参数
 ```Java
@@ -117,6 +138,7 @@ var students = db.get(
     new DBVariable("userid", ()->session.get("currentUserId"))
 );
 ```
+一般用于参数值会变化的情况，可以结合全局SQL参数，传入常用SQL参数，减少代码量。
 
 ### SQL拼接
 ```Java
@@ -126,12 +148,13 @@ var students = db.get(
         String.join(",", ids)
 );
 ```
+SQL字符串的大括号里支持javascript语法，因此可以做很多事...
 
 ### 自动生成实体类
 ```Java
 db.makeEntityCodeFiles("/home/entities/", "myproject.entity", false);
 ```
-执行后自动根据DB结构生成实体类文件，可以配置到项目的实体类目录。生成的实体类如下：
+执行后，程序自动根据DB结构生成所有实体类文件，可以配置到项目的实体类目录。生成的实体类如下：
 ```Java
 package myproject.entity;
 
@@ -189,3 +212,4 @@ public class OracleInfo implements IDBInfo {
 DBUtils.registeredInfos.add(OracleInfo.class);
 var db = new DBUtils("jdbc:oracle:...");
 ```
+目前已支持MySQL和SQLServer
