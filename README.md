@@ -6,7 +6,7 @@
 # 上手
 ### Hello World
 ```Java
-var db = new DBUtils("jdbc:mysql://localhost:3306/mall?User=root&Password=root");
+var db = new DBUtils("jdbc:mysql://localhost:3306/school?User=root&Password=root");
 System.out.println((String)db.executeValue("select 'Hello World'"));
 ```
 
