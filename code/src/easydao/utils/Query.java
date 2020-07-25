@@ -1,7 +1,7 @@
-package easyorm.utils;
+package easydao.utils;
 
 
-import easyorm.*;
+import easydao.*;
 
 import java.lang.reflect.Array;
 import java.util.*;

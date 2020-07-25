@@ -1,12 +1,10 @@
-package easyorm.dbinfo;
+package easydao.dbinfo;
 
-import easyorm.DBField;
-import easyorm.DBTable;
-import easyorm.DBUtils;
+import easydao.DBField;
+import easydao.DBTable;
+import easydao.DBUtils;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.net.URI;
 import java.sql.Driver;
 import java.sql.Time;
 import java.util.ArrayList;

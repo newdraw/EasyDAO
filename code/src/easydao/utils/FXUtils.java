@@ -1,4 +1,4 @@
-package easyorm.utils;/*
+package easydao.utils;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -6,19 +6,13 @@ package easyorm.utils;/*
 
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-import java.io.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 import java.math.BigInteger;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Path;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
 
 /**
  * 框架工具类

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package easyorm.utils;
+package easydao.utils;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;

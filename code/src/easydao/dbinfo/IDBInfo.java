@@ -1,7 +1,7 @@
-package easyorm.dbinfo;
+package easydao.dbinfo;
 
-import easyorm.DBField;
-import easyorm.DBUtils;
+import easydao.DBField;
+import easydao.DBUtils;
 
 import java.sql.Driver;
 

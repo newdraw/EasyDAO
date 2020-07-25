@@ -1,6 +1,6 @@
-package easyorm;
+package easydao;
 
-import easyorm.utils.*;
+import easydao.utils.*;
 
 import java.util.HashMap;
 import java.util.Map;

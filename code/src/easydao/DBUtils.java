@@ -1,8 +1,8 @@
-package easyorm;
+package easydao;
 
-import easyorm.dbinfo.*;
-import easyorm.utils.*;
-import easyorm.utils.Ref;
+import easydao.dbinfo.*;
+import easydao.utils.*;
+import easydao.utils.Ref;
 
 import java.io.File;
 import java.io.FileOutputStream;

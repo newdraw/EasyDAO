@@ -1,4 +1,4 @@
-package easyorm;
+package easydao;
 
 public enum DBVariableType {
     /**
